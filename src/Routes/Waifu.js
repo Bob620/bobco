@@ -1,12 +1,11 @@
 import Route from './Route';
 import React, { Component } from 'react';
-import logo from './../logo-white.png';
 import './../App.css';
-import { Header, BetaLoginInput, Loading } from './../General';
+import { Header, Loading, RedirectButton } from './../General';
 
 class Waifu extends Route {
-  	constructor(props) {
-	    super(props);
+  	constructor() {
+	    super();
 	    this.validateCode = this.validateCode.bind(this);
 	    this.state = {
 	    	isLoggedIn: false,
@@ -19,9 +18,10 @@ class Waifu extends Route {
 	}
 
 	render() {
+		document.title = "Waifu Bot";
 		return (
 			<div className="App">
-			    <Header logo={logo} title="Waifu Bot"/>
+			    <Header title="Waifu Bot"/>
 			    {this.state.isLoggedIn ? (
 				    <Dashboard user={this.state.user} />
 		    	) : (
@@ -76,7 +76,7 @@ class LoginHome extends Component {
             Failed to login using that code
           </p>
         }
-        <BetaLoginInput onSubmit={this.props.onSubmit} />
+        <RedirectButton text="Login Using Discord" redirect="https://discordapp.com/oauth2/authorize?response_type=code&redirect_uri=http%3A%2F%2Flocalhost:3000/waifu/auth&scope=identify guilds&client_id=259932651417370624" />
       </div>
     );
   }

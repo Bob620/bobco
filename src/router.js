@@ -1,4 +1,6 @@
 import createHistory from 'history/createBrowserHistory';
+
+// Import Paths
 import Burning from './Routes/Burning'
 import Waifu from './Routes/Waifu'
 import WaifuAuth from './Routes/WaifuAuth'
@@ -7,6 +9,14 @@ import Home from './Routes/Home'
 class Router {
 	constructor(rootElement) {
 		this.rootElement = rootElement;
+
+		/* Routes:
+		 * {
+		 *    path: "/PATH",
+		 *    created: false,
+		 *    route: ImportedClass
+		 * }
+		 */
 
 		this.routes = [
 			{
@@ -33,24 +43,26 @@ class Router {
 
 		this.history = createHistory();
 
+		// Loads the current page
 		this.getCurrentPage(this.history.location);
-
-		this.history.listen((location, action) => {
-			this.getCurrentPage(location);
-		});
 	}
 
 	getCurrentPage(location) {
+		console.log("New Location Rendering");
+		// Parse the url query
 		const urlParams = this.getUrlParams(location.search);
 
+		// Find a route that fits the requested path
 		for (let i = 0; i < this.routes.length; i++) {
 			const route = this.routes[i];
 			if (location.pathname === route.path || location.pathname === route.path+'/') {
+				// Create the route's Object if not already made
 				if (!route.created) {
 					route.route = new route.route();
 					route.created = true;
 				}
-				route.route.primaryRender(this.rootElement, urlParams);
+				// Start the render process
+				route.route.primaryRender(this.rootElement, this.history, this.getCurrentPage.bind(this), urlParams);
 				break;
 			}
 		}
@@ -58,17 +70,15 @@ class Router {
 
 	getUrlParams(rawQuery) {
 		const splitQuery = rawQuery.slice(1).split('&');
-		let paramList = [];
+		let paramList = {};
 
 		for (let i = 0; i < splitQuery.length; i++) {
 			let query = splitQuery[i].split('=');
 			if (query[0] !== undefined && query[1] !== undefined) {
-				paramList.push({
-					name: query[0],
-					data: query[1]
-				});
+				paramList[query[0]] = query[1];
 			}
 		}
+		return paramList;
 	}
 }
 
