@@ -1,19 +1,17 @@
 {
   "name": "bobco",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
-  "devDependencies": {
-    "react-scripts": "0.8.4"
+  "scripts": {
+    "start": "node ./bin/www"
   },
   "dependencies": {
-    "history": "^4.5.1",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "body-parser": "~1.15.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.14.0",
+    "morgan": "~1.7.0",
+    "pug": "~2.0.0-beta6",
+    "serve-favicon": "~2.3.0"
   }
 }
