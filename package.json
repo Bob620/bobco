@@ -4,7 +4,22 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "build": "node build.js"
+    "babel-node": "babel-node --presets=es2015,react ./bin/www",
+    "build": "node build.js",
+    "browserify": "browserify ./src/index -o ./public/index.js"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015",
+            "react"
+          ]
+        }
+      ]
+    ]
   },
   "dependencies": {
     "body-parser": "~1.15.2",
