@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "babel-node": "babel-node --presets=es2015,react ./bin/www",
     "build": "node build.js",
-    "browserify": "browserify ./src/index -o ./public/index.js"
+    "browserify": "browserify ./src/index/render.jsx -o ./public/js/index.js | browserify ./src/burningdale/render.jsx -o ./public/js/burningdale.js"
   },
   "browserify": {
     "transform": [
@@ -18,6 +18,9 @@
             "react"
           ]
         }
+      ],
+      [
+          "browserify-css"
       ]
     ]
   },
@@ -34,10 +37,10 @@
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
-    "babel-core": "^6.22.1",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.22.0",
     "babelify": "^7.3.0",
-    "browserify": "^14.0.0"
+    "browserify": "^14.0.0",
+    "browserify-css": "^0.10.0"
   }
 }
