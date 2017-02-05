@@ -2,15 +2,15 @@ import Render from './../render.jsx';
 import React, { Component } from 'react';
 import { Header } from './../general.jsx';
 
-class Home extends Component {
+class Burningdale extends Component {
 	render() {
-		document.title = "BobCo";
+		document.title = "Burningdale - BobCo";
 		return (
 			<div className="App">
-				<Header title="BobCo"/>
+				<Header title="Burningdale"/>
 			</div>
 		);
 	}
 }
 
-Render(Home);
+Render(Burningdale);

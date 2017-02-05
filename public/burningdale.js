@@ -20564,8 +20564,77 @@ module.exports = traverseAllChildren;
 module.exports = require('./lib/React');
 
 },{"./lib/React":156}],179:[function(require,module,exports){
+'use strict';
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _createClass = function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+}();
+
+var _render = require('./../render.jsx');
+
+var _render2 = _interopRequireDefault(_render);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _general = require('./../general.jsx');
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError("Cannot call a class as a function");
+	}
+}
+
+function _possibleConstructorReturn(self, call) {
+	if (!self) {
+		throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+	}return call && ((typeof call === 'undefined' ? 'undefined' : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+	if (typeof superClass !== "function" && superClass !== null) {
+		throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === 'undefined' ? 'undefined' : _typeof(superClass)));
+	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var Home = function (_Component) {
+	_inherits(Home, _Component);
+
+	function Home() {
+		_classCallCheck(this, Home);
+
+		return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
+	}
+
+	_createClass(Home, [{
+		key: 'render',
+		value: function render() {
+			document.title = "Burningdale - BobCo";
+			return _react2.default.createElement('div', { className: 'App' }, _react2.default.createElement(_general.Header, { title: 'Burningdale' }));
+		}
+	}]);
+
+	return Home;
+}(_react.Component);
+
+(0, _render2.default)(Home);
+
+},{"./../general.jsx":181,"./../render.jsx":182,"react":178}],180:[function(require,module,exports){
 var css = "@import url(\"https://fonts.googleapis.com/css?family=Oxygen\");\nbody {\n  margin: 0px;\n}\n.App-intro {\n  padding: 20px;\n  font-size: large;\n  text-align: center;\n}\n.App {\n  font-family: 'Oxygen', sans-serif;\n  background-color: #222;\n  color: white;\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n.App-fail {\n  color: #ff4646;\n}\n/* App-loading */\n.App-loading {\n  position: absolute;\n  display: flex;\n  justify-content: center;\n  width: 100vw;\n  height: calc(100vh - 60px);\n  top: 60px;\n}\n.App-loading > img {\n  animation: App-image-spin infinite 6s linear;\n  align-self: center;\n  max-height: 40vh;\n}\n/* App-header */\n.App-header {\n  display: flex;\n  flex-direction: row;\n  background-color: #346788;\n  height: 60px;\n}\n.App-logo {\n  /*  animation: App-image-spin infinite 20s linear; */\n  height: 40px;\n  width: 40px;\n  padding: 10px;\n}\n.App-title {\n  text-align: center;\n  align-self: center;\n  width: calc(100vw - 120px);\n}\n/* App-body */\n.App-body {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-self: center;\n  text-align: center;\n}\n.App-button {\n  text-align: center;\n  align-self: center;\n  background-color: #346788;\n  border-radius: 7px;\n  padding: 15px 40px 15px 40px;\n  user-select: none;\n  color: white;\n  font-size: inherit;\n  border-width: 0px;\n}\n.App-button:hover {\n  background-color: #29526c;\n  cursor: pointer;\n}\n.App-button:active {\n  background-color: #24485f;\n}\n.App-button > p {\n  margin: 0px;\n}\n@keyframes App-image-spin {\n  from {\n    transform: rotate(0deg);\n  }\n\n  to {\n    transform: rotate(360deg);\n  }\n}\n"; (require("browserify-css").createStyle(css, { "href": "src\\general.css" }, { "insertAt": "bottom" })); module.exports = css;
-},{"browserify-css":1}],180:[function(require,module,exports){
+},{"browserify-css":1}],181:[function(require,module,exports){
 'use strict';
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -20717,76 +20786,7 @@ exports.BetaLoginInput = BetaLoginInput;
 exports.Loading = Loading;
 exports.RedirectButton = RedirectButton;
 
-},{"./general.css":179,"react":178}],181:[function(require,module,exports){
-'use strict';
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var _createClass = function () {
-	function defineProperties(target, props) {
-		for (var i = 0; i < props.length; i++) {
-			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-		}
-	}return function (Constructor, protoProps, staticProps) {
-		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-	};
-}();
-
-var _render = require('./../render.jsx');
-
-var _render2 = _interopRequireDefault(_render);
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _general = require('./../general.jsx');
-
-function _interopRequireDefault(obj) {
-	return obj && obj.__esModule ? obj : { default: obj };
-}
-
-function _classCallCheck(instance, Constructor) {
-	if (!(instance instanceof Constructor)) {
-		throw new TypeError("Cannot call a class as a function");
-	}
-}
-
-function _possibleConstructorReturn(self, call) {
-	if (!self) {
-		throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-	}return call && ((typeof call === 'undefined' ? 'undefined' : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-}
-
-function _inherits(subClass, superClass) {
-	if (typeof superClass !== "function" && superClass !== null) {
-		throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === 'undefined' ? 'undefined' : _typeof(superClass)));
-	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-}
-
-var Home = function (_Component) {
-	_inherits(Home, _Component);
-
-	function Home() {
-		_classCallCheck(this, Home);
-
-		return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
-	}
-
-	_createClass(Home, [{
-		key: 'render',
-		value: function render() {
-			document.title = "BobCo";
-			return _react2.default.createElement('div', { className: 'App' }, _react2.default.createElement(_general.Header, { title: 'BobCo' }));
-		}
-	}]);
-
-	return Home;
-}(_react.Component);
-
-(0, _render2.default)(Home);
-
-},{"./../general.jsx":180,"./../render.jsx":182,"react":178}],182:[function(require,module,exports){
+},{"./general.css":180,"react":178}],182:[function(require,module,exports){
 'use strict';
 
 var ReactDOM = require('react-dom');
@@ -20800,4 +20800,4 @@ function Render(App) {
 
 module.exports = Render;
 
-},{"react":178,"react-dom":27}]},{},[181]);
+},{"react":178,"react-dom":27}]},{},[179]);
