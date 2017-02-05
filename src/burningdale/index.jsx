@@ -1,3 +1,4 @@
+const ReactDOM = require('react-dom');
 const React = require('react');
 import './style.css';
 
@@ -7,10 +8,17 @@ class App extends React.Component {
   }
 
   render() {
-    return <div>
-    <h1>Baka</h1>
-    </div>
+    return (
+      <div>
+        <h1>Baka</h1>
+      </div>
+    );
   }
 }
 
-module.exports = App;
+document.addEventListener("DOMContentLoaded", () => {
+	ReactDOM.render(
+    <App />,
+    document.getElementById('App')
+  );
+}, false);

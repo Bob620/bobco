@@ -1,5 +1,7 @@
 const fs = require('fs');
+const path = require('path');
 const babelify = require('babelify');
+const cssify = require('browserify-css');
 const browserify = require('browserify');
 
 const generalFileRegex = /(\.)(.)+/gi;
@@ -7,66 +9,33 @@ const baseDir = "./src";
 const outputDir = "./public";
 
 function build() {
-  let directories = [new Directory(baseDir)];
+  let directories = [];
+
+  const files = fs.readdirSync(baseDir);
+  for (x = 0; x < files.length; x++) {
+    const file = files[x];
+    if (file.match(generalFileRegex) === null) {
+      directories.push(file);
+    }
+  }
 
   for (let i = 0; i < directories.length; i++) {
-    const directory = directories[i];
-
-    const files = fs.readdirSync(directory.path);
-    for (x = 0; x < files.length; x++) {
-      const file = files[x];
-      if (file.match(generalFileRegex) !== null) {
-        directory.addFile(directory.path+'/'+file);
-      } else {
-        directories.push(new Directory(directory.path+'/'+file));
-      }
-    }
-
-    directory.bundle();
+    const dirName = directories[i];
+    console.log(`${dirName}/index.jsx -> ${dirName}.js`);
+    bundle(`${baseDir}/${dirName}/index.jsx`, dirName);
   }
 }
 
-function bundle(files, name) {
+function bundle(files, outputName) {
   browserify()
     .transform(babelify, {presets: ["es2015", "react"]})
+    .transform(cssify)
     .require(files)
     .bundle()
     .on('error', (err) => {
       console.log(`Error: ${err.message}`);
     })
-    .pipe(fs.createWriteStream(`${outputDir}/${name}.js`));
-}
-
-class Directory {
-  constructor(path) {
-    this.path = path;
-    this.files = [];
-
-    let name = path.split('/');
-    name = name[name.length-1];
-    switch(name) {
-      case "":
-        this.name = "bundle";
-        break;
-      case "src":
-        this.name = "index";
-        break;
-      default:
-        this.name = name;
-        break;
-    }
-  }
-
-  addFile(file) {
-    this.files.push(file);
-  }
-
-  bundle() {
-    if (this.files.length > 0) {
-      console.log(`Bundling ${this.path} -> ${this.name}.js`);
-      bundle(this.files, this.name);
-    }
-  }
+    .pipe(fs.createWriteStream(`${outputDir}/${outputName}.js`));
 }
 
 build();

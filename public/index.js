@@ -20564,13 +20564,11 @@ module.exports = traverseAllChildren;
 module.exports = require('./lib/React');
 
 },{"./lib/React":156}],179:[function(require,module,exports){
-var css = "body {\n  padding: 50px;\n  font: 14px \"Lucida Grande\", Helvetica, Arial, sans-serif;\n}\na {\n  color: #00B7FF;\n}\n"; (require("browserify-css").createStyle(css, { "href": "public\\css\\style.css" }, { "insertAt": "bottom" })); module.exports = css;
-},{"browserify-css":1}],180:[function(require,module,exports){
 'use strict';
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-require('./../../public/css/style.css');
+require('./style.css');
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -20578,6 +20576,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var ReactDOM = require('react-dom');
 var React = require('react');
 
 var App = function (_React$Component) {
@@ -20607,18 +20606,13 @@ var App = function (_React$Component) {
   return App;
 }(React.Component);
 
-module.exports = App;
+console.log("Read");
 
-},{"./../../public/css/style.css":179,"react":178}],181:[function(require,module,exports){
-'use strict';
-
-var React = require('react');
-var ReactDOM = require('react-dom');
-var App = require('./index.jsx');
-
-//Target container is not a DOM element error may occur, should render on DOMContentLoaded event.
 document.addEventListener("DOMContentLoaded", function () {
-   ReactDOM.render(React.createElement(App, null), document.getElementById('App'));
+  console.log("Loaded");
+  ReactDOM.render(React.createElement(App, null), document.getElementById('App'));
 }, false);
 
-},{"./index.jsx":180,"react":178,"react-dom":27}]},{},[181]);
+},{"./style.css":180,"react":178,"react-dom":27}],180:[function(require,module,exports){
+var css = "body {\n  padding: 50px;\n  font: 14px \"Lucida Grande\", Helvetica, Arial, sans-serif;\n}\na {\n  color: #00B7FF;\n}\n"; (require("browserify-css").createStyle(css, { "href": "src\\index\\style.css" }, { "insertAt": "bottom" })); module.exports = css;
+},{"browserify-css":1}]},{},[179]);
