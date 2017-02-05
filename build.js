@@ -7,6 +7,7 @@ const browserify = require('browserify');
 const generalFileRegex = /(\.)(.)+/gi;
 const baseDir = "./src";
 const outputDir = "./public";
+const entryFile = "index.jsx";
 
 function build() {
   let directories = [];
@@ -15,7 +16,10 @@ function build() {
   for (x = 0; x < files.length; x++) {
     const file = files[x];
     if (file.match(generalFileRegex) === null) {
-      directories.push(file);
+      const dirFiles = fs.readdirSync(`${baseDir}/${file}`);
+      if (dirFiles.includes(entryFile)) {
+        directories.push(file);
+      }
     }
   }
 

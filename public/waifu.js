@@ -20720,16 +20720,30 @@ exports.RedirectButton = RedirectButton;
 },{"./general.css":179,"react":178}],181:[function(require,module,exports){
 'use strict';
 
+var ReactDOM = require('react-dom');
+var React = require('react');
+
+function Render(App) {
+  document.addEventListener("DOMContentLoaded", function () {
+    ReactDOM.render(React.createElement(App, null), document.getElementById('App'));
+  }, false);
+}
+
+module.exports = Render;
+
+},{"react":178,"react-dom":27}],182:[function(require,module,exports){
+'use strict';
+
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _createClass = function () {
-	function defineProperties(target, props) {
-		for (var i = 0; i < props.length; i++) {
-			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-		}
-	}return function (Constructor, protoProps, staticProps) {
-		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-	};
+		function defineProperties(target, props) {
+				for (var i = 0; i < props.length; i++) {
+						var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+				}
+		}return function (Constructor, protoProps, staticProps) {
+				if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+		};
 }();
 
 var _render = require('./../render.jsx');
@@ -20743,61 +20757,128 @@ var _react2 = _interopRequireDefault(_react);
 var _general = require('./../general.jsx');
 
 function _interopRequireDefault(obj) {
-	return obj && obj.__esModule ? obj : { default: obj };
+		return obj && obj.__esModule ? obj : { default: obj };
 }
 
 function _classCallCheck(instance, Constructor) {
-	if (!(instance instanceof Constructor)) {
-		throw new TypeError("Cannot call a class as a function");
-	}
+		if (!(instance instanceof Constructor)) {
+				throw new TypeError("Cannot call a class as a function");
+		}
 }
 
 function _possibleConstructorReturn(self, call) {
-	if (!self) {
-		throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-	}return call && ((typeof call === 'undefined' ? 'undefined' : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+		if (!self) {
+				throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+		}return call && ((typeof call === 'undefined' ? 'undefined' : _typeof(call)) === "object" || typeof call === "function") ? call : self;
 }
 
 function _inherits(subClass, superClass) {
-	if (typeof superClass !== "function" && superClass !== null) {
-		throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === 'undefined' ? 'undefined' : _typeof(superClass)));
-	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+		if (typeof superClass !== "function" && superClass !== null) {
+				throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === 'undefined' ? 'undefined' : _typeof(superClass)));
+		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
-var Home = function (_Component) {
-	_inherits(Home, _Component);
+var Waifu = function (_Component) {
+		_inherits(Waifu, _Component);
 
-	function Home() {
-		_classCallCheck(this, Home);
+		function Waifu() {
+				_classCallCheck(this, Waifu);
 
-		return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
-	}
+				var _this = _possibleConstructorReturn(this, (Waifu.__proto__ || Object.getPrototypeOf(Waifu)).call(this));
 
-	_createClass(Home, [{
-		key: 'render',
-		value: function render() {
-			document.title = "BobCo";
-			return _react2.default.createElement('div', { className: 'App' }, _react2.default.createElement(_general.Header, { title: 'BobCo' }));
+				_this.validateCode = _this.validateCode.bind(_this);
+				_this.state = {
+						isLoggedIn: false,
+						loading: false,
+						loginFailed: false,
+						user: {
+								"name": ""
+						}
+				};
+				return _this;
 		}
-	}]);
 
-	return Home;
+		_createClass(Waifu, [{
+				key: 'render',
+				value: function render() {
+						document.title = "Waifu Bot - BobCo";
+						return _react2.default.createElement('div', { className: 'App' }, _react2.default.createElement(_general.Header, { title: 'Waifu Bot' }), this.state.isLoggedIn ? _react2.default.createElement(Dashboard, { user: this.state.user }) : _react2.default.createElement(LoginHome, { failed: this.state.loginFailed, onSubmit: this.validateCode }), this.state.loading && _react2.default.createElement(_general.Loading, null));
+				}
+		}, {
+				key: 'validateCode',
+				value: function validateCode(e) {
+						var _this2 = this;
+
+						this.setState({
+								loading: true
+						});
+						var value = e.target[0].value;
+						setTimeout(function () {
+								if (value === "123456") {
+										_this2.setState({
+												isLoggedIn: true,
+												loading: false,
+												loginFailed: false,
+												user: {
+														name: "Bob620"
+												}
+										});
+								} else {
+										_this2.setState({
+												isLoggedIn: false,
+												loading: false,
+												loginFailed: true,
+												user: {
+														name: "Bob620"
+												}
+										});
+								}
+						}, 2000);
+						e.preventDefault();
+				}
+		}]);
+
+		return Waifu;
 }(_react.Component);
 
-(0, _render2.default)(Home);
+var LoginHome = function (_Component2) {
+		_inherits(LoginHome, _Component2);
 
-},{"./../general.jsx":180,"./../render.jsx":182,"react":178}],182:[function(require,module,exports){
-'use strict';
+		function LoginHome() {
+				_classCallCheck(this, LoginHome);
 
-var ReactDOM = require('react-dom');
-var React = require('react');
+				return _possibleConstructorReturn(this, (LoginHome.__proto__ || Object.getPrototypeOf(LoginHome)).apply(this, arguments));
+		}
 
-function Render(App) {
-  document.addEventListener("DOMContentLoaded", function () {
-    ReactDOM.render(React.createElement(App, null), document.getElementById('App'));
-  }, false);
-}
+		_createClass(LoginHome, [{
+				key: 'render',
+				value: function render() {
+						return _react2.default.createElement('div', { className: 'App-body' }, _react2.default.createElement('p', { className: 'App-intro' }, 'A Discord chatbot with a number of features and more to come.'), this.props.failed && _react2.default.createElement('p', { className: 'App-fail' }, 'Failed to login using that code'), _react2.default.createElement(_general.RedirectButton, { text: 'Login Using Discord', redirect: 'https://discordapp.com/oauth2/authorize?response_type=code&redirect_uri=http%3A%2F%2Flocalhost:3000/waifu/auth&scope=identify guilds&client_id=259932651417370624' }));
+				}
+		}]);
 
-module.exports = Render;
+		return LoginHome;
+}(_react.Component);
 
-},{"react":178,"react-dom":27}]},{},[181]);
+var Dashboard = function (_Component3) {
+		_inherits(Dashboard, _Component3);
+
+		function Dashboard() {
+				_classCallCheck(this, Dashboard);
+
+				return _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).apply(this, arguments));
+		}
+
+		_createClass(Dashboard, [{
+				key: 'render',
+				value: function render() {
+						return _react2.default.createElement('div', { className: 'App-body' }, _react2.default.createElement('p', null, 'Welcome ', this.props.user.name));
+				}
+		}]);
+
+		return Dashboard;
+}(_react.Component);
+
+(0, _render2.default)(Waifu);
+
+},{"./../general.jsx":180,"./../render.jsx":181,"react":178}]},{},[182]);

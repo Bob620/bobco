@@ -1,19 +1,16 @@
-const Render = require('./../render.jsx');
-const React = require('react');
-import './style.css';
+import Render from './../render.jsx';
+import React, { Component } from 'react';
+import { Header } from './../general.jsx';
 
-class App extends React.Component {
-  constructor() {
-    super();
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Baka</h1>
-      </div>
-    );
-  }
+class Home extends Component {
+	render() {
+		document.title = "BobCo";
+		return (
+			<div className="App">
+				<Header title="BobCo"/>
+			</div>
+		);
+	}
 }
 
-Render(App);
+Render(Home);
