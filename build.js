@@ -30,7 +30,7 @@ function bundle(files, outputName) {
   browserify()
     .transform(babelify, {presets: ["es2015", "react"]})
     .transform(cssify)
-    .require(files)
+    .add(files)
     .bundle()
     .on('error', (err) => {
       console.log(`Error: ${err.message}`);

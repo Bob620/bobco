@@ -20566,18 +20566,40 @@ module.exports = require('./lib/React');
 },{"./lib/React":156}],179:[function(require,module,exports){
 'use strict';
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+  };
+}();
 
 require('./style.css');
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }return call && ((typeof call === 'undefined' ? 'undefined' : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+}
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === 'undefined' ? 'undefined' : _typeof(superClass)));
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
 
-var ReactDOM = require('react-dom');
 var React = require('react');
+var Render = require('./../render.jsx');
 
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
@@ -20591,25 +20613,29 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'render',
     value: function render() {
-      return React.createElement(
-        'div',
-        null,
-        React.createElement(
-          'h1',
-          null,
-          'Baka'
-        )
-      );
+      return React.createElement('div', null, React.createElement('h1', null, 'Baka'));
     }
   }]);
 
   return App;
 }(React.Component);
 
-document.addEventListener("DOMContentLoaded", function () {
-  ReactDOM.render(React.createElement(App, null), document.getElementById('App'));
-}, false);
+Render(App);
 
-},{"./style.css":180,"react":178,"react-dom":27}],180:[function(require,module,exports){
+},{"./../render.jsx":181,"./style.css":180,"react":178}],180:[function(require,module,exports){
 var css = "body {\n  padding: 50px;\n  font: 14px \"Lucida Grande\", Helvetica, Arial, sans-serif;\n}\na {\n  color: #00B7FF;\n}\n"; (require("browserify-css").createStyle(css, { "href": "src\\burningdale\\style.css" }, { "insertAt": "bottom" })); module.exports = css;
-},{"browserify-css":1}]},{},[179]);
+},{"browserify-css":1}],181:[function(require,module,exports){
+'use strict';
+
+var ReactDOM = require('react-dom');
+var React = require('react');
+
+function Render(App) {
+  document.addEventListener("DOMContentLoaded", function () {
+    ReactDOM.render(React.createElement(App, null), document.getElementById('App'));
+  }, false);
+}
+
+module.exports = Render;
+
+},{"react":178,"react-dom":27}]},{},[179]);

@@ -1,5 +1,5 @@
-const ReactDOM = require('react-dom');
 const React = require('react');
+const Render = require('./../render.jsx');
 import './style.css';
 
 class App extends React.Component {
@@ -16,9 +16,4 @@ class App extends React.Component {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-	ReactDOM.render(
-    <App />,
-    document.getElementById('App')
-  );
-}, false);
+Render(App);
