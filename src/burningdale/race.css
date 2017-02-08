@@ -1,0 +1,33 @@
+.Lifepath {
+  text-align: start;
+  width: 400px;
+  height: 200px;
+}
+
+.Lifepath > .title {
+  text-align: center;
+  width: 100%;
+}
+.Lifepath > .title > h3 {
+  margin: 0px;
+  padding: 0px;
+}
+
+.Lifepath > .info {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+}
+.Lifepath > .info > .stat {
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+}
+
+.Lifepath > .info > .stat > p {
+  margin: 0px;
+  padding: 0px;
+}

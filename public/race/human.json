@@ -1,0 +1,591 @@
+{
+  "name": "human",
+  "age": {
+    "1-10": {
+      "mental": 5,
+      "physical": 10
+    },
+    "11-14": {
+      "mental": 6,
+      "physical": 13
+    },
+    "15-16": {
+      "mental": 6,
+      "physical": 16
+    },
+    "17-25": {
+      "mental": 7,
+      "physical": 16
+    },
+    "26-29": {
+      "mental": 7,
+      "physical": 15
+    },
+    "30-35": {
+      "mental": 7,
+      "physical": 14
+    },
+    "36-40": {
+      "mental": 7,
+      "physical": 13
+    },
+    "41-55": {
+      "mental": 7,
+      "physical": 12
+    },
+    "56-65": {
+      "mental": 7,
+      "physical": 11
+    },
+    "66-79": {
+      "mental": 7,
+      "physical": 10
+    },
+    "80-100": {
+      "mental": 6,
+      "physical": 9
+    },
+  },
+  "settings": {
+    "peasent": {
+      "born peasent": {
+        "time": 8,
+        "resources": 3,
+        "stats": {
+          "physical": 0,
+          "mental": 0,
+          "either": 0
+        },
+        "leads": [
+          "servitude and captive",
+          "solider",
+          "seafaring",
+          "religious"
+        ],
+        "skills": {
+          "general": 3,
+          "points": 0,
+          "skills": []
+        },
+        "traits": {
+          "traits": [],
+          "points": 2
+        },
+        "restrictions": []
+      },
+      "farmer": {
+        "time": 8,
+        "resources": 5,
+        "stats": {
+          "physical": 1,
+          "mental": 0,
+          "either": 0
+        },
+        "leads": [
+          "villager",
+          "solider",
+          "servitude and captive"
+        ],
+        "skills": {
+          "general": 0,
+          "points": 8,
+          "skills": [
+            "farming",
+            "mending",
+            "animal husbandry",
+            "weaving",
+            "cooking",
+            "sewing",
+            "firebuilding",
+            "sing"
+          ],
+          "traits": {
+            "traits": [
+              "hoarding"
+            ],
+            "points": 1
+          }
+        },
+        "head of household": {
+          "time": 15,
+          "resources": 20,
+          "stats": {
+            "physical": 0,
+            "mental": 1,
+            "either": 0
+          },
+          "leads": [
+            "villager",
+            "solider"
+          ],
+          "skills": {
+            "general": 0,
+            "points": 8,
+            "skills": [
+              "carpentry",
+              "hunting",
+              "haggling",
+              "almanac"
+            ]
+          },
+          "traits": {
+            "traits": [],
+            "points": 2
+          },
+          "restrictions": [
+            "may not be the character's second lifepath"
+          ]
+        }
+      },
+      "midwife": {
+        "time": 10,
+        "resources": 15,
+        "stats": {
+          "physical": 0,
+          "mental": 1,
+          "either": 0
+        },
+        "leads": [
+          "villager",
+          "outcast"
+        ],
+        "skills": {
+          "general": 0,
+          "points": 7,
+          "skills": [
+            "animal husbandry",
+            "herbalism",
+            "midwaifery",
+            "omen-wise"
+          ]
+        },
+        "traits": {
+          "traits": [
+            "bedside manner"
+          ],
+          "points": 2
+        },
+        "restrictions": [
+          "any female gender-specific lifepath (Lady, etc), farmer, or itinerant priest"
+        ]
+      },
+      "lazy stayabout": {
+        "time": 7,
+        "resources": 3,
+        "stats": {
+          "physical": 0,
+          "mental": 0,
+          "either": 0
+        },
+        "leads": [
+          "outcast",
+          "servitude and captive",
+          "solider"
+        ],
+        "skills": {
+          "general": 0,
+          "points": 3,
+          "skills": [
+            "lazy-wise",
+            "peasant-wise",
+            "wife-wise",
+            "work-wise"
+          ]
+        },
+        "traits": {
+          "traits": [
+            "a little fat"
+          ],
+          "points": 1
+        },
+        "restrictions": []
+      },
+      "conscript": {
+        "time": 1,
+        "resources": 4,
+        "stats": {
+          "physical": 0,
+          "mental": 0,
+          "either": 0
+        },
+        "leads": [
+          "outcast",
+          "servitude and captive",
+          "solider"
+        ],
+        "skills": {
+          "general": 0,
+          "points": 2,
+          "skills": [
+            "foraging",
+            "battle-wise",
+            "rumor-wise"
+          ]
+        },
+        "traits": {
+          "traits": [
+            "flee from battle"
+          ],
+          "points": 1
+        },
+        "restrictions": []
+      },
+      "peasant pilgrim": {
+        "time": 3,
+        "resources": 4,
+        "stats": {
+          "physical": 0,
+          "mental": 0,
+          "either": 0
+        },
+        "leads": [
+          "outcast",
+          "servitude and captive",
+          "villager"
+        ],
+        "skills": {
+          "general": 1,
+          "points": 3,
+          "skills": [
+            "doctrine",
+            "pilgrimage-wise",
+            "saint-wise"
+          ]
+        },
+        "traits": {
+          "traits": [
+            "flee from battle"
+          ],
+          "points": 1
+        },
+        "restrictions": []
+      }
+    },
+    "villager": {
+      "village born": {
+        "time": 10,
+        "resources": 4,
+        "stats": {
+          "physical": 0,
+          "mental": 0,
+          "either": 0
+        },
+        "leads": [
+          "peasant",
+          "servitude and captive",
+          "seafaring",
+          "religious"
+        ],
+        "skills": {
+          "general": 3,
+          "points": 0,
+          "skills": []
+        },
+        "traits": {
+          "traits": [],
+          "points": 2
+        },
+        "restrictions": []
+      },
+      "kid": {
+        "time": 4,
+        "resources": 3,
+        "stats": {
+          "physical": 1,
+          "mental": 0,
+          "either": 0
+        },
+        "leads": [
+          "peasant",
+          "city dweller",
+          "servitude and captive",
+          "seafaring",
+          "religious",
+          "professional soldier",
+          "outcast"
+        ],
+        "skills": {
+          "general": 0,
+          "points": 3,
+          "skills": [
+            "trouble-wise",
+            "throwing",
+            "inconspicuous"
+          ]
+        },
+        "traits": {
+          "traits": [
+            "bad egg",
+            "good for nothing",
+            "fleet of foot"
+          ],
+          "points": 1
+        },
+        "restrictions": [
+          "if chosen, kid must be the second lifepath chosen and may only be taken once"
+        ]
+      },
+      "idiot": {
+        "time": 10,
+        "resources": 4,
+        "stats": {
+          "physical": 0,
+          "mental": 0,
+          "either": 0
+        },
+        "leads": [
+          "peasant",
+          "outcast"
+        ],
+        "skills": {
+          "general": 0,
+          "points": 4,
+          "skills": [
+            "inconspicuous",
+            "conspicuous",
+            "ugly truth",
+            "village secrets-wise"
+          ]
+        },
+        "traits": {
+          "traits": [
+            "problems",
+            "alchoholic",
+            "abused",
+            "handicapped"],
+            "points": 1
+          },
+          "restrictions": []
+        },
+        "pilgrim": {
+          "time": 2,
+          "resources": 4,
+          "stats": {
+            "physical": 0,
+            "mental": 0,
+            "either": 0
+          },
+          "leads": [
+            "religious",
+            "servititude and captive",
+            "city dweller"
+          ],
+          "skills": {
+            "general": 0,
+            "points": 5,
+            "skills": [
+              "religious rumor-wise",
+              "road-wise",
+              "shrine-wise",
+              "alms-wise",
+              "relic-wise",
+              "doctrine"
+            ]
+          },
+          "traits": {
+            "traits": [
+              "collector"
+            ],
+            "points": 2
+          },
+          "restrictions": []
+        },
+        "conscript": {
+          "time": 1,
+          "resources": 5,
+          "stats": {
+            "physical": 0,
+            "mental": 0,
+            "either": 0
+          },
+          "leads": [
+            "professional soldier",
+            "servititude and captive",
+            "outcast"
+          ],
+          "skills": {
+            "general": 0,
+            "points": 2,
+            "skills": [
+              "foraging",
+              "baggage train-wise"
+            ]
+          },
+          "traits": {
+            "traits": [
+              "hide before battle"
+            ],
+            "points": 1
+          },
+          "restrictions": []
+        },
+        "groom": {
+          "time": 4,
+          "resources": 7,
+          "stats": {
+            "physical": 0,
+            "mental": 0,
+            "either": 0
+          },
+          "leads": [
+            "peasant",
+            "professional soldier",
+            "city dweller"
+          ],
+          "skills": {
+            "general": 0,
+            "points": 4,
+            "skills": [
+              "animal husbandry",
+              "riding", "mending",
+              "horse-wise",
+              "road-wise"
+            ]
+          },
+          "traits": {
+            "traits": [],
+            "points": 1
+          },
+          "restrictions": []
+        },
+        "runner": {
+          "time": 4,
+          "resources": 6,
+          "stats": {
+            "physical": 1,
+            "mental": 0,
+            "either": 0
+          },
+          "leads": [
+            "professional soldier",
+            "peasant",
+            "city dweller"
+          ],
+          "skills": {
+            "general": 0,
+            "points": 3,
+            "skills": [
+              "streetwise",
+              "inconspicuous",
+              "shortcut-wise"
+            ]
+          },
+          "traits": {
+            "traits": [
+              "skinny",
+              "fleet of foot"
+            ],
+            "points": 1
+          },
+          "restrictions": []
+        },
+        "village peddler": {
+          "time": 5,
+          "resources": 10,
+          "stats": {
+            "physical": 0,
+            "mental": 1,
+            "either": 0
+          },
+          "leads": [
+            "peasant",
+            "outcast",
+            "servititude and captive",
+            "city dweller"
+          ],
+          "skills": {
+            "general": 0,
+            "points": 7,
+            "skills": [
+              "mending",
+              "sing",
+              "haggling",
+              "chandler",
+              "persuasion",
+              "inconspicuous",
+              "falsehood"]
+            },
+            "traits": {
+              "traits": [
+                "odd"
+              ],
+              "points": 2
+            },
+            "restrictions": []
+          },
+          "shopkeeper": {
+            "time": 6,
+            "resources": 15,
+            "stats": {
+              "physical": 0,
+              "mental": 0,
+              "either": 0
+            },
+            "leads": [
+              "peasant",
+              "city dweller"
+            ],
+            "skills": {
+              "isGeneral": false,
+              "points": 5,
+              "skills": ["haggling", "accounting", "observation", "merchant-wise"]
+            },
+            "traits": {
+              "traits": [],
+              "points": 1
+            },
+            "restrictions": []
+          },
+          "clerk": {
+            "time": 4,
+            "resources": 9,
+            "stats": {
+              "physical": 0,
+              "mental": 0,
+              "either": 0
+            },
+            "leads": [
+              "professional soldier",
+              "outcast",
+              "city dweller"
+            ],
+            "skills": {
+              "general": 0,
+              "points": 4,
+              "skills": ["bureaucracy", "write", "read", "contract-wise"]
+            },
+            "traits": {
+              "traits": ["cramped hands", "mind for small details"],
+              "points": 1
+            },
+            "restrictions": []
+          },
+        },
+        "city dweller": {
+
+        },
+        "noble": {
+
+        },
+        "seafaring": {
+
+        },
+        "servitude and captive": {
+
+        }
+      },
+      "subSetting": {
+        "noble court": {
+
+        },
+        "religious": {
+
+        },
+        "professional solider": {
+
+        },
+        "outcast": {
+
+        }
+      }
+    }

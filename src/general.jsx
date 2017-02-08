@@ -7,12 +7,12 @@ const logo = '/assets/images/logo-white.png';
 class Header extends Component {
   render() {
     return (
-      <div className="App-header">
+      <section className="App-header">
         <a href="/">
           <img src={logo} className="App-logo" alt="logo" />
         </a>
         <h2 className="App-title">{this.props.title}</h2>
-      </div>
+      </section>
     );
   }
 }
@@ -20,7 +20,7 @@ class Header extends Component {
 class Button extends Component {
   render() {
     return (
-      <button className="App-button" type={this.props.type} >
+      <button className="App-button" type={this.props.type ? this.props.type : "text"} onClick={this.props.onClick ? this.props.onClick : ""}>
         <p>{this.props.text}</p>
       </button>
     );
@@ -39,18 +39,6 @@ class RedirectButton extends Component {
   }
 }
 
-class BetaLoginInput extends Component {
-  render() {
-    return (
-      <form className="App-betalogininput" onSubmit={this.props.onSubmit}>
-        <input autoComplete="off" autoFocus maxLength="10" type="text" placeholder="Beta Access Code" />
-        <br />
-        <Button text="Login" type="submit" />
-      </form>
-    );
-  }
-}
-
 class Loading extends Component {
   render() {
     return (
@@ -61,4 +49,4 @@ class Loading extends Component {
   }
 }
 
-export { Header, Button, BetaLoginInput, Loading, RedirectButton};
+export { Header, Button, Loading, RedirectButton};

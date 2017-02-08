@@ -20573,7 +20573,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.RedirectButton = exports.Loading = exports.BetaLoginInput = exports.Button = exports.Header = undefined;
+exports.RedirectButton = exports.Loading = exports.Button = exports.Header = undefined;
 
 var _createClass = function () {
   function defineProperties(target, props) {
@@ -20628,7 +20628,7 @@ var Header = function (_Component) {
   _createClass(Header, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', { className: 'App-header' }, _react2.default.createElement('a', { href: '/' }, _react2.default.createElement('img', { src: logo, className: 'App-logo', alt: 'logo' })), _react2.default.createElement('h2', { className: 'App-title' }, this.props.title));
+      return _react2.default.createElement('section', { className: 'App-header' }, _react2.default.createElement('a', { href: '/' }, _react2.default.createElement('img', { src: logo, className: 'App-logo', alt: 'logo' })), _react2.default.createElement('h2', { className: 'App-title' }, this.props.title));
     }
   }]);
 
@@ -20647,7 +20647,7 @@ var Button = function (_Component2) {
   _createClass(Button, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('button', { className: 'App-button', type: this.props.type }, _react2.default.createElement('p', null, this.props.text));
+      return _react2.default.createElement('button', { className: 'App-button', type: this.props.type ? this.props.type : "text", onClick: this.props.onClick ? this.props.onClick : "" }, _react2.default.createElement('p', null, this.props.text));
     }
   }]);
 
@@ -20673,27 +20673,8 @@ var RedirectButton = function (_Component3) {
   return RedirectButton;
 }(_react.Component);
 
-var BetaLoginInput = function (_Component4) {
-  _inherits(BetaLoginInput, _Component4);
-
-  function BetaLoginInput() {
-    _classCallCheck(this, BetaLoginInput);
-
-    return _possibleConstructorReturn(this, (BetaLoginInput.__proto__ || Object.getPrototypeOf(BetaLoginInput)).apply(this, arguments));
-  }
-
-  _createClass(BetaLoginInput, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement('form', { className: 'App-betalogininput', onSubmit: this.props.onSubmit }, _react2.default.createElement('input', { autoComplete: 'off', autoFocus: true, maxLength: '10', type: 'text', placeholder: 'Beta Access Code' }), _react2.default.createElement('br', null), _react2.default.createElement(Button, { text: 'Login', type: 'submit' }));
-    }
-  }]);
-
-  return BetaLoginInput;
-}(_react.Component);
-
-var Loading = function (_Component5) {
-  _inherits(Loading, _Component5);
+var Loading = function (_Component4) {
+  _inherits(Loading, _Component4);
 
   function Loading() {
     _classCallCheck(this, Loading);
@@ -20713,7 +20694,6 @@ var Loading = function (_Component5) {
 
 exports.Header = Header;
 exports.Button = Button;
-exports.BetaLoginInput = BetaLoginInput;
 exports.Loading = Loading;
 exports.RedirectButton = RedirectButton;
 
