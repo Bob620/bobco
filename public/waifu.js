@@ -20564,7 +20564,7 @@ module.exports = traverseAllChildren;
 module.exports = require('./lib/React');
 
 },{"./lib/React":156}],179:[function(require,module,exports){
-var css = "@import url(\"https://fonts.googleapis.com/css?family=Oxygen\");\nbody {\n  margin: 0px;\n}\n.App-intro {\n  padding: 20px;\n  font-size: large;\n  text-align: center;\n}\n.App {\n  font-family: 'Oxygen', sans-serif;\n  background-color: #222;\n  color: white;\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n.App-fail {\n  color: #ff4646;\n}\n/* App-loading */\n.App-loading {\n  position: absolute;\n  display: flex;\n  justify-content: center;\n  width: 100vw;\n  height: calc(100vh - 60px);\n  top: 60px;\n}\n.App-loading > img {\n  animation: App-image-spin infinite 6s linear;\n  align-self: center;\n  max-height: 40vh;\n}\n/* App-header */\n.App-header {\n  display: flex;\n  flex-direction: row;\n  background-color: #346788;\n  height: 60px;\n}\n.App-logo {\n  /*  animation: App-image-spin infinite 20s linear; */\n  height: 40px;\n  width: 40px;\n  padding: 10px;\n}\n.App-title {\n  text-align: center;\n  align-self: center;\n  width: calc(100vw - 120px);\n}\n/* App-body */\n.App-body {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-self: center;\n  text-align: center;\n}\n.App-button {\n  text-align: center;\n  align-self: center;\n  background-color: #346788;\n  border-radius: 7px;\n  padding: 15px 40px 15px 40px;\n  user-select: none;\n  color: white;\n  font-size: inherit;\n  border-width: 0px;\n}\n.App-button:hover {\n  background-color: #29526c;\n  cursor: pointer;\n}\n.App-button:active {\n  background-color: #24485f;\n}\n.App-button > p {\n  margin: 0px;\n}\n@keyframes App-image-spin {\n  from {\n    transform: rotate(0deg);\n  }\n\n  to {\n    transform: rotate(360deg);\n  }\n}\n"; (require("browserify-css").createStyle(css, { "href": "src\\general.css" }, { "insertAt": "bottom" })); module.exports = css;
+var css = "@import url(\"https://fonts.googleapis.com/css?family=Oxygen\");\nbody {\n  margin: 0px;\n}\n.App-intro {\n  padding: 20px;\n  font-size: large;\n  text-align: center;\n}\n.App {\n  font-family: 'Oxygen', sans-serif;\n  background-color: #222;\n  color: white;\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n}\n.App-fail {\n  color: #ff4646;\n}\n/* App-loading */\n.App-loading {\n  position: absolute;\n  display: flex;\n  justify-content: center;\n  width: 100vw;\n  height: calc(100vh - 60px);\n  top: 60px;\n}\n.App-loading > img {\n  animation: App-image-spin infinite 6s linear;\n  align-self: center;\n  max-height: 40vh;\n}\n/* App-header */\n.App-header {\n  display: flex;\n  flex-direction: row;\n  background-color: #346788;\n  height: 60px;\n}\n.App-header > div {\n  flex-basis: 33%;\n}\n.App-header > h1 {\n  flex-basis: 34%;\n}\n.App-logo {\n  /*  animation: App-image-spin infinite 20s linear; */\n  height: 40px;\n  width: 40px;\n  padding: 10px;\n}\n.SubApp-logo {\n  height: 40px;\n  width: 40px;\n  padding: 10px;\n  border-radius: 20px;\n}\n.App-title {\n  text-align: center;\n  align-self: center;\n  width: calc(100vw - 120px);\n  cursor: default;\n}\n.App-User {\n  display: flex;\n  justify-content: flex-end;\n}\n.App-User > div {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.App-User > div > p {\n  margin: 0px;\n  padding: 5px;\n  cursor: default;\n}\n.App-User > img {\n  padding: 5px;\n  width: 50px;\n  height: 50px;\n  border-radius: 50px;\n}\n.App-User > a > img {\n  padding: 15px;\n  width: 30px;\n  height: 30px;\n}\n/* App-body */\n.App-body {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-self: center;\n  text-align: center;\n}\n.App-button {\n  text-align: center;\n  align-self: center;\n  background-color: #346788;\n  border-radius: 7px;\n  padding: 15px 40px 15px 40px;\n  user-select: none;\n  color: white;\n  font-size: inherit;\n  border-width: 0px;\n}\n.App-button:hover {\n  background-color: #29526c;\n  cursor: pointer;\n}\n.App-button:active {\n  background-color: #24485f;\n}\n.App-button > p {\n  margin: 0px;\n}\n@keyframes App-image-spin {\n  from {\n    transform: rotate(0deg);\n  }\n\n  to {\n    transform: rotate(360deg);\n  }\n}\n"; (require("browserify-css").createStyle(css, { "href": "src\\general.css" }, { "insertAt": "bottom" })); module.exports = css;
 },{"browserify-css":1}],180:[function(require,module,exports){
 'use strict';
 
@@ -20615,6 +20615,7 @@ function _inherits(subClass, superClass) {
 
 var loadingIcon = '/assets/images/loading.png';
 var logo = '/assets/images/logo-white.png';
+var waifuLogo = '/assets/images/waifu.jpg';
 
 var Header = function (_Component) {
   _inherits(Header, _Component);
@@ -20628,7 +20629,7 @@ var Header = function (_Component) {
   _createClass(Header, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('section', { className: 'App-header' }, _react2.default.createElement('a', { href: '/' }, _react2.default.createElement('img', { src: logo, className: 'App-logo', alt: 'logo' })), _react2.default.createElement('h2', { className: 'App-title' }, this.props.title));
+      return _react2.default.createElement('section', { className: 'App-header' }, _react2.default.createElement('div', null, _react2.default.createElement('a', { href: '/' }, _react2.default.createElement('img', { src: logo, className: 'App-logo', alt: 'BobCo' })), _react2.default.createElement('a', { href: '/waifu' }, _react2.default.createElement('img', { src: waifuLogo, className: 'SubApp-logo', alt: 'Waifu' }))), _react2.default.createElement('h2', { className: 'App-title' }, this.props.title), this.props.user ? _react2.default.createElement('div', { className: 'App-User' }, _react2.default.createElement('div', null, _react2.default.createElement('p', null, this.props.user.username)), this.props.user.avatar !== null && this.props.user.avatar !== undefined && this.props.user.avatar !== "" ? _react2.default.createElement('img', { src: "https://cdn.discordapp.com/avatars/" + this.props.user.id + "/" + this.props.user.avatar + ".png" }) : _react2.default.createElement('img', { src: 'https://discordapp.com/assets/1c8a54f25d101bdc607cec7228247a9a.svg' }), _react2.default.createElement('a', { href: '/waifu/logout' }, _react2.default.createElement('img', { src: 'data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMS4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ3MS4yIDQ3MS4yIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0NzEuMiA0NzEuMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI2NHB4IiBoZWlnaHQ9IjY0cHgiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik0yMjcuNjE5LDQ0NC4yaC0xMjIuOWMtMzMuNCwwLTYwLjUtMjcuMi02MC41LTYwLjVWODcuNWMwLTMzLjQsMjcuMi02MC41LDYwLjUtNjAuNWgxMjQuOWM3LjUsMCwxMy41LTYsMTMuNS0xMy41ICAgIHMtNi0xMy41LTEzLjUtMTMuNWgtMTI0LjljLTQ4LjMsMC04Ny41LDM5LjMtODcuNSw4Ny41djI5Ni4yYzAsNDguMywzOS4zLDg3LjUsODcuNSw4Ny41aDEyMi45YzcuNSwwLDEzLjUtNiwxMy41LTEzLjUgICAgUzIzNS4wMTksNDQ0LjIsMjI3LjYxOSw0NDQuMnoiIGZpbGw9IiNGRkZGRkYiLz4KCQk8cGF0aCBkPSJNNDUwLjAxOSwyMjYuMWwtODUuOC04NS44Yy01LjMtNS4zLTEzLjgtNS4zLTE5LjEsMGMtNS4zLDUuMy01LjMsMTMuOCwwLDE5LjFsNjIuOCw2Mi44aC0yNzMuOWMtNy41LDAtMTMuNSw2LTEzLjUsMTMuNSAgICBzNiwxMy41LDEzLjUsMTMuNWgyNzMuOWwtNjIuOCw2Mi44Yy01LjMsNS4zLTUuMywxMy44LDAsMTkuMWMyLjYsMi42LDYuMSw0LDkuNSw0czYuOS0xLjMsOS41LTRsODUuOC04NS44ICAgIEM0NTUuMzE5LDIzOS45LDQ1NS4zMTksMjMxLjMsNDUwLjAxOSwyMjYuMXoiIGZpbGw9IiNGRkZGRkYiLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K' }))) : _react2.default.createElement('div', { className: 'App-User' }));
     }
   }]);
 
@@ -20717,13 +20718,13 @@ module.exports = Render;
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _createClass = function () {
-		function defineProperties(target, props) {
-				for (var i = 0; i < props.length; i++) {
-						var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
-				}
-		}return function (Constructor, protoProps, staticProps) {
-				if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
-		};
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+  };
 }();
 
 var _render = require('./../render.jsx');
@@ -20736,129 +20737,71 @@ var _react2 = _interopRequireDefault(_react);
 
 var _general = require('./../general.jsx');
 
+require('./waifu.css');
+
 function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
+  return obj && obj.__esModule ? obj : { default: obj };
 }
 
 function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-				throw new TypeError("Cannot call a class as a function");
-		}
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
 }
 
 function _possibleConstructorReturn(self, call) {
-		if (!self) {
-				throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}return call && ((typeof call === 'undefined' ? 'undefined' : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }return call && ((typeof call === 'undefined' ? 'undefined' : _typeof(call)) === "object" || typeof call === "function") ? call : self;
 }
 
 function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-				throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === 'undefined' ? 'undefined' : _typeof(superClass)));
-		}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === 'undefined' ? 'undefined' : _typeof(superClass)));
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
 
 var Waifu = function (_Component) {
-		_inherits(Waifu, _Component);
+  _inherits(Waifu, _Component);
 
-		function Waifu() {
-				_classCallCheck(this, Waifu);
+  function Waifu() {
+    _classCallCheck(this, Waifu);
 
-				var _this = _possibleConstructorReturn(this, (Waifu.__proto__ || Object.getPrototypeOf(Waifu)).call(this));
+    return _possibleConstructorReturn(this, (Waifu.__proto__ || Object.getPrototypeOf(Waifu)).call(this));
+  }
 
-				_this.validateCode = _this.validateCode.bind(_this);
-				_this.state = {
-						isLoggedIn: false,
-						loading: false,
-						loginFailed: false,
-						user: {
-								"name": ""
-						}
-				};
-				return _this;
-		}
+  _createClass(Waifu, [{
+    key: 'render',
+    value: function render() {
+      document.title = "Waifu Bot";
+      return _react2.default.createElement('div', { className: 'App' }, _react2.default.createElement(_general.Header, { title: 'Waifu Bot' }), _react2.default.createElement(LoginHome, null));
+    }
+  }]);
 
-		_createClass(Waifu, [{
-				key: 'render',
-				value: function render() {
-						document.title = "Waifu Bot - BobCo";
-						return _react2.default.createElement('div', { className: 'App' }, _react2.default.createElement(_general.Header, { title: 'Waifu Bot' }), this.state.isLoggedIn ? _react2.default.createElement(Dashboard, { user: this.state.user }) : _react2.default.createElement(LoginHome, { failed: this.state.loginFailed, onSubmit: this.validateCode }), this.state.loading && _react2.default.createElement(_general.Loading, null));
-				}
-		}, {
-				key: 'validateCode',
-				value: function validateCode(e) {
-						var _this2 = this;
-
-						this.setState({
-								loading: true
-						});
-						var value = e.target[0].value;
-						setTimeout(function () {
-								if (value === "123456") {
-										_this2.setState({
-												isLoggedIn: true,
-												loading: false,
-												loginFailed: false,
-												user: {
-														name: "Bob620"
-												}
-										});
-								} else {
-										_this2.setState({
-												isLoggedIn: false,
-												loading: false,
-												loginFailed: true,
-												user: {
-														name: "Bob620"
-												}
-										});
-								}
-						}, 2000);
-						e.preventDefault();
-				}
-		}]);
-
-		return Waifu;
+  return Waifu;
 }(_react.Component);
 
 var LoginHome = function (_Component2) {
-		_inherits(LoginHome, _Component2);
+  _inherits(LoginHome, _Component2);
 
-		function LoginHome() {
-				_classCallCheck(this, LoginHome);
+  function LoginHome() {
+    _classCallCheck(this, LoginHome);
 
-				return _possibleConstructorReturn(this, (LoginHome.__proto__ || Object.getPrototypeOf(LoginHome)).apply(this, arguments));
-		}
+    return _possibleConstructorReturn(this, (LoginHome.__proto__ || Object.getPrototypeOf(LoginHome)).apply(this, arguments));
+  }
 
-		_createClass(LoginHome, [{
-				key: 'render',
-				value: function render() {
-						return _react2.default.createElement('div', { className: 'App-body' }, _react2.default.createElement('p', { className: 'App-intro' }, 'A Discord chatbot with a number of features and more to come.'), this.props.failed && _react2.default.createElement('p', { className: 'App-fail' }, 'Failed to login using that code'), _react2.default.createElement(_general.RedirectButton, { text: 'Login Using Discord', redirect: 'https://discordapp.com/oauth2/authorize?response_type=code&redirect_uri=http%3A%2F%2Flocalhost:3000/waifu/auth&scope=identify guilds&client_id=259932651417370624' }));
-				}
-		}]);
+  _createClass(LoginHome, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement('div', { className: 'App-body' }, _react2.default.createElement('div', null, _react2.default.createElement('img', { src: '/assets/images/waifu.jpg' }), _react2.default.createElement('p', { className: 'App-intro' }, 'An easy to use Chatbot based around anime pictures'), _react2.default.createElement(_general.RedirectButton, { text: 'Login Using Discord', redirect: 'https://discordapp.com/oauth2/authorize?response_type=code&redirect_uri=http%3A%2F%2Fbobco.moe/waifu/api/auth&scope=identify guilds&client_id=259932651417370624' })));
+    }
+  }]);
 
-		return LoginHome;
-}(_react.Component);
-
-var Dashboard = function (_Component3) {
-		_inherits(Dashboard, _Component3);
-
-		function Dashboard() {
-				_classCallCheck(this, Dashboard);
-
-				return _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).apply(this, arguments));
-		}
-
-		_createClass(Dashboard, [{
-				key: 'render',
-				value: function render() {
-						return _react2.default.createElement('div', { className: 'App-body' }, _react2.default.createElement('p', null, 'Welcome ', this.props.user.name));
-				}
-		}]);
-
-		return Dashboard;
+  return LoginHome;
 }(_react.Component);
 
 (0, _render2.default)(Waifu);
 
-},{"./../general.jsx":180,"./../render.jsx":181,"react":178}]},{},[182]);
+},{"./../general.jsx":180,"./../render.jsx":181,"./waifu.css":183,"react":178}],183:[function(require,module,exports){
+var css = ".App-body > div > img {\n  height: 33vh;\n  width: 33vh;\n  border-radius: 33vh;\n  margin-top: 20px;\n}\n.App-intro {\n  margin: 0px;\n}\n"; (require("browserify-css").createStyle(css, { "href": "src\\waifu\\waifu.css" }, { "insertAt": "bottom" })); module.exports = css;
+},{"browserify-css":1}]},{},[182]);

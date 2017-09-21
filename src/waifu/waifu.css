@@ -1,0 +1,10 @@
+.App-body > div > img {
+  height: 33vh;
+  width: 33vh;
+  border-radius: 33vh;
+  margin-top: 20px;
+}
+
+.App-intro {
+  margin: 0px;
+}

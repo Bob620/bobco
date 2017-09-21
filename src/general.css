@@ -47,6 +47,12 @@ body {
   background-color: #346788;
   height: 60px;
 }
+.App-header > div {
+  flex-basis: 33%;
+}
+.App-header > h1 {
+  flex-basis: 34%;
+}
 
 .App-logo {
 /*  animation: App-image-spin infinite 20s linear; */
@@ -55,10 +61,44 @@ body {
   padding: 10px;
 }
 
+.SubApp-logo {
+  height: 40px;
+  width: 40px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
 .App-title {
   text-align: center;
   align-self: center;
   width: calc(100vw - 120px);
+  cursor: default;
+}
+
+.App-User {
+  display: flex;
+  justify-content: flex-end;
+}
+.App-User > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.App-User > div > p {
+  margin: 0px;
+  padding: 5px;
+  cursor: default;
+}
+.App-User > img {
+  padding: 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+.App-User > a > img {
+  padding: 15px;
+  width: 30px;
+  height: 30px;
 }
 
 /* App-body */
