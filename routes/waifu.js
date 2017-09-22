@@ -277,7 +277,7 @@ function authenticate(code) {
     let info = {};
 
     const test = https.request({
-      path: '/api/oauth2/token?client_id=259932651417370624&client_secret=-V_Rkf4Gg44QraRjjMdbss465gL42vOH&grant_type=authorization_code&redirect_uri=http://localhost/waifu/api/auth&code='+code,
+      path: '/api/oauth2/token?client_id=259932651417370624&client_secret=-V_Rkf4Gg44QraRjjMdbss465gL42vOH&grant_type=authorization_code&redirect_uri=http://bobco.moe/waifu/api/auth&code='+code,
       hostname: 'discordapp.com', method: 'POST', port: '443', headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         'User-Agent': 'DiscordBot (https://github.com/Bob620/bobco, 1.0.0)'
