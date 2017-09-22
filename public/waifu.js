@@ -20793,7 +20793,7 @@ var LoginHome = function (_Component2) {
   _createClass(LoginHome, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement('div', { className: 'App-body' }, _react2.default.createElement('div', null, _react2.default.createElement('img', { src: '/assets/images/waifu.jpg' }), _react2.default.createElement('p', { className: 'App-intro' }, 'An easy to use Chatbot based around anime pictures'), _react2.default.createElement(_general.RedirectButton, { text: 'Login Using Discord', redirect: 'https://discordapp.com/oauth2/authorize?response_type=code&redirect_uri=http%3A%2F%2Fbobco.moe/waifu/api/auth&scope=identify guilds&client_id=259932651417370624' })));
+      return _react2.default.createElement('div', { className: 'App-body' }, _react2.default.createElement('div', null, _react2.default.createElement('img', { src: '/assets/images/waifu.jpg' }), _react2.default.createElement('p', { className: 'App-intro' }, 'An easy to use Chatbot based around anime pictures'), _react2.default.createElement(_general.RedirectButton, { text: 'Login Using Discord', redirect: 'https://discordapp.com/oauth2/authorize?response_type=code&redirect_uri=http%3A%2F%2Flocalhost/waifu/api/auth&scope=identify guilds&client_id=259932651417370624' })));
     }
   }]);
 

@@ -4,9 +4,11 @@ const http = require('http');
 const FlakeId = require('flake-idgen');
 const flakeId = new FlakeId();
 const intformat = require('biguint-format')
+const kagi = require('kagi');
 
 // Waifu Storage
 const aws = require('aws-sdk');
+aws.config.update(kagi.getChain('kagi.chn').getLink('credentials'));
 const dynamodbWestTwo = new aws.DynamoDB({apiVersion: '2012-08-10', 'region': 'us-west-2'});
 
 // This Web Server
@@ -163,6 +165,7 @@ router.get('/api/guilds/:guildId', (req, res, next) => {
       if (userGuild) {
         dynamodbWestTwo.getItem({TableName:"bobbot", Key: {id: {S: guildId}, type: {S: 'discord'}}}, (err, data) => {
           if (err) {
+            console.log(err);
             res.status(404).json({message: "An Error Occured"});
           } else {
             const guild = new WaifuGuild(userGuild, data.Item);
@@ -274,7 +277,7 @@ function authenticate(code) {
     let info = {};
 
     const test = https.request({
-      path: '/api/oauth2/token?client_id=259932651417370624&client_secret=-V_Rkf4Gg44QraRjjMdbss465gL42vOH&grant_type=authorization_code&redirect_uri=http://bobco.moe/waifu/api/auth&code='+code,
+      path: '/api/oauth2/token?client_id=259932651417370624&client_secret=-V_Rkf4Gg44QraRjjMdbss465gL42vOH&grant_type=authorization_code&redirect_uri=http://localhost/waifu/api/auth&code='+code,
       hostname: 'discordapp.com', method: 'POST', port: '443', headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
         'User-Agent': 'DiscordBot (https://github.com/Bob620/bobco, 1.0.0)'

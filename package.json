@@ -33,6 +33,7 @@
     "debug": "~2.2.0",
     "express": "~4.14.0",
     "flake-idgen": "^1.1.0",
+    "kagi": "github:toka-io/kagi",
     "morgan": "~1.7.0",
     "pug": "~2.0.0-beta6",
     "react": "^15.4.2",
