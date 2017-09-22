@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.58.0",
+    "axios": "^0.16.2",
     "bakajax": "0.0.3",
     "biguint-format": "^1.0.0",
     "body-parser": "~1.15.2",
