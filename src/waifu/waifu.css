@@ -1,4 +1,4 @@
-.App-body > div > img {
+.Waifu-image {
   height: 33vh;
   width: 33vh;
   border-radius: 33vh;
@@ -7,4 +7,10 @@
 
 .App-intro {
   margin: 0px;
+}
+
+.Patreon-button {
+  cursor: pointer;
+  border-radius: 7px;
+  height: 3em;
 }

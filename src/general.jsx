@@ -16,6 +16,7 @@ class Header extends Component {
           <a href="/waifu">
             <img src={waifuLogo} className="SubApp-logo" alt="Waifu" />
           </a>
+          <a href="https://www.patreon.com/bob620"><img src="/assets/images/patreonButton.png" className="Patreon-top-button" /></a>
         </div>
         <h2 className="App-title">{this.props.title}</h2>
         {this.props.user ? (
