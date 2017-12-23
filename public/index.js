@@ -21098,6 +21098,81 @@ exports.Loading = Loading;
 exports.RedirectButton = RedirectButton;
 
 },{"./general.css":199,"react":198}],201:[function(require,module,exports){
+var css = "body {\n  overflow-x: hidden;\n}\n#App-Body {\n  display: flex;\n  overflow-x: hidden;\n}\n#App-Body .info-section {\n  position: absolute;\n  height: calc(100vh - 180px);\n  width: 42.5vw;\n  top: 120px;\n  background-color: red;\n}\n#App-Body .slide-left {\n  animation-duration: 1000ms;\n  animation-name: slideFromLeft;\n  left: 5vw;\n}\n#App-Body .slide-right {\n  animation-duration: 1000ms;\n  animation-name: slideFromRight;\n  right: 5vw;\n}\n@keyframes slideFromLeft {\n  from {\n    left: -100vw;\n  }\n\n  to {\n    left: 5vw;\n  }\n}\n@keyframes slideFromRight {\n  from {\n    right: -100vw;\n  }\n\n  to {\n    right: 5vw;\n  }\n}\n"; (require("browserify-css").createStyle(css, { "href": "src\\index\\body.css" }, { "insertAt": "bottom" })); module.exports = css;
+},{"browserify-css":1}],202:[function(require,module,exports){
+'use strict';
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.Body = undefined;
+
+var _createClass = function () {
+	function defineProperties(target, props) {
+		for (var i = 0; i < props.length; i++) {
+			var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+		}
+	}return function (Constructor, protoProps, staticProps) {
+		if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+	};
+}();
+
+var _render = require('./../render.jsx');
+
+var _render2 = _interopRequireDefault(_render);
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+require('./body.css');
+
+function _interopRequireDefault(obj) {
+	return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+	if (!(instance instanceof Constructor)) {
+		throw new TypeError("Cannot call a class as a function");
+	}
+}
+
+function _possibleConstructorReturn(self, call) {
+	if (!self) {
+		throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+	}return call && ((typeof call === "undefined" ? "undefined" : _typeof(call)) === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+	if (typeof superClass !== "function" && superClass !== null) {
+		throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof(superClass)));
+	}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var Body = function (_Component) {
+	_inherits(Body, _Component);
+
+	function Body() {
+		_classCallCheck(this, Body);
+
+		return _possibleConstructorReturn(this, (Body.__proto__ || Object.getPrototypeOf(Body)).apply(this, arguments));
+	}
+
+	_createClass(Body, [{
+		key: 'render',
+		value: function render() {
+			return _react2.default.createElement('section', { id: 'App-Body' }, _react2.default.createElement('div', { className: 'info-section slide-left' }), _react2.default.createElement('div', { className: 'info-section slide-right' }));
+		}
+	}]);
+
+	return Body;
+}(_react.Component);
+
+exports.Body = Body;
+
+},{"./../render.jsx":204,"./body.css":201,"react":198}],203:[function(require,module,exports){
 'use strict';
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
@@ -21121,6 +21196,8 @@ var _react = require('react');
 var _react2 = _interopRequireDefault(_react);
 
 var _general = require('./../general.jsx');
+
+var _body = require('./body.jsx');
 
 function _interopRequireDefault(obj) {
 	return obj && obj.__esModule ? obj : { default: obj };
@@ -21157,7 +21234,7 @@ var Home = function (_Component) {
 		key: 'render',
 		value: function render() {
 			document.title = "BobCo";
-			return _react2.default.createElement('div', { className: 'App' }, _react2.default.createElement(_general.Header, { title: 'BobCo' }));
+			return _react2.default.createElement('div', { className: 'App' }, _react2.default.createElement(_general.Header, { title: 'BobCo' }), _react2.default.createElement(_body.Body, null));
 		}
 	}]);
 
@@ -21166,7 +21243,7 @@ var Home = function (_Component) {
 
 (0, _render2.default)(Home);
 
-},{"./../general.jsx":200,"./../render.jsx":202,"react":198}],202:[function(require,module,exports){
+},{"./../general.jsx":200,"./../render.jsx":204,"./body.jsx":202,"react":198}],204:[function(require,module,exports){
 'use strict';
 
 var ReactDOM = require('react-dom');
@@ -21180,4 +21257,4 @@ function Render(App) {
 
 module.exports = Render;
 
-},{"react":198,"react-dom":17}]},{},[201]);
+},{"react":198,"react-dom":17}]},{},[203]);

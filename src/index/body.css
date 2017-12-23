@@ -1,0 +1,48 @@
+body {
+  overflow-x: hidden;
+}
+
+#App-Body {
+  display: flex;
+  overflow-x: hidden;
+}
+
+#App-Body .info-section {
+  position: absolute;
+  height: calc(100vh - 180px);
+  width: 42.5vw;
+  top: 120px;
+  background-color: red;
+}
+
+#App-Body .slide-left {
+  animation-duration: 1000ms;
+  animation-name: slideFromLeft;
+  left: 5vw;
+}
+
+#App-Body .slide-right {
+  animation-duration: 1000ms;
+  animation-name: slideFromRight;
+  right: 5vw;
+}
+
+@keyframes slideFromLeft {
+  from {
+    left: -100vw;
+  }
+
+  to {
+    left: 5vw;
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    right: -100vw;
+  }
+
+  to {
+    right: 5vw;
+  }
+}
