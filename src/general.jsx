@@ -9,7 +9,7 @@ class Header extends Component {
   render() {
     return (
       <section className="App-header">
-        <div>
+        <div className="App-tabs">
           <a href="/">
             <img src={logo} className="App-logo" alt="BobCo" />
           </a>
@@ -18,7 +18,6 @@ class Header extends Component {
           </a>
           <a href="https://www.patreon.com/bob620"><img src="/assets/images/patreonButton.png" className="Patreon-top-button" /></a>
         </div>
-        <h2 className="App-title">{this.props.title}</h2>
         {this.props.user ? (
           <div className="App-User">
               <div>
@@ -53,13 +52,21 @@ class Button extends Component {
 }
 
 class RedirectButton extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick() {
+    window.location.assign(this.props.link);
+  }
+
   render() {
     return (
-      <a href={this.props.redirect}>
-        <button className="App-button" type={this.props.type} >
-          <p>{this.props.text}</p>
-        </button>
-      </a>
+      <button className="App-button" type={this.props.type} onClick={this.onClick}>
+        <p>{this.props.text}</p>
+      </button>
     );
   }
 }

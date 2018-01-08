@@ -1,3 +1,7 @@
+/**
+ * Bob was here, and he made this
+ */
+
 const fs = require('fs');
 const path = require('path');
 const babelify = require('babelify');

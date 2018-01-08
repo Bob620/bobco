@@ -6,12 +6,6 @@ class Body extends Component {
 	render() {
 		return (
 			<section id="App-Body">
-				<div className="info-section slide-left">
-
-				</div>
-				<div className="info-section slide-right">
-
-				</div>
 			</section>
 		);
 	}

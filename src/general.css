@@ -2,6 +2,9 @@
 
 body {
   margin: 0px;
+  background-image: url(/assets/images/background.png);
+  background-repeat: repeat;
+  background-size: 30vw;
 }
 
 .App-intro {
@@ -12,11 +15,11 @@ body {
 
 .App {
   font-family: 'Oxygen', sans-serif;
-  background-color: #222;
   color: white;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: rgba(0,0,0,0.2);
 }
 
 .App-fail {
@@ -45,13 +48,16 @@ body {
   display: flex;
   flex-direction: row;
   background-color: #346788;
+  justify-content: space-between;
   height: 60px;
+  width: 100vw;
+  box-shadow: 0px 0px 7px 5px rgba(0,0,0,0.6)
 }
-.App-header > div {
-  flex-basis: 33%;
+.App-header > .App-tabs {
+  width: 80vw;
 }
-.App-header > h1 {
-  flex-basis: 34%;
+.App-header > .App-User {
+  width: 20vw;
 }
 
 .App-logo {
@@ -73,13 +79,6 @@ body {
   border-radius: 16px;
   height: 40px;
   padding: 10px;
-}
-
-.App-title {
-  text-align: center;
-  align-self: center;
-  width: calc(100vw - 120px);
-  cursor: default;
 }
 
 .App-User {
@@ -123,21 +122,23 @@ body {
   align-self: center;
   background-color: #346788;
   border-radius: 7px;
-  padding: 15px 40px 15px 40px;
   user-select: none;
   color: white;
   font-size: inherit;
   border-width: 0px;
+  box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.3);
+  padding: 0px;
 }
 .App-button:hover {
-  background-color: #29526c;
   cursor: pointer;
+  box-shadow: inset 0px 0px 7px 3px rgba(0,0,0,0.7)
 }
 .App-button:active {
   background-color: #24485f;
 }
 .App-button > p {
   margin: 0px;
+  padding: 15px 40px 15px 40px;
 }
 
 @keyframes App-image-spin {
