@@ -13,7 +13,7 @@ class Header extends Component {
           <a href="/">
             <img src={logo} className="App-logo" alt="BobCo" />
           </a>
-          <a href="/waifu">
+          <a href="http://waifubot.moe">
             <img src={waifuLogo} className="SubApp-logo" alt="Waifu" />
           </a>
           <a href="https://www.patreon.com/bob620"><img src="/assets/images/patreonButton.png" className="Patreon-top-button" /></a>

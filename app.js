@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var burningdale = require('./routes/burningdale');
-var waifu = require('./routes/waifu');
 //var users = require('./routes/users');
 
 var app = express();
@@ -26,7 +25,9 @@ app.use('/assets', express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/burningdale', burningdale);
-app.use('/waifu', waifu);
+app.use('/waifu', (req, res) => {
+  res.redirect('http://waifubot.moe');
+});
 //app.use('/users', users);
 
 // catch 404 and forward to error handler
