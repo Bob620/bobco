@@ -37,7 +37,7 @@ jspm_packages
 .node_repl_history
 
 # Ignore the built code
-public/react/*.js
+public/react
 
 # Ignore webstorm files
 .idea
