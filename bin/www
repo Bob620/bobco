@@ -1,5 +1,8 @@
 #!/usr/bin/env node
-/*
+
+const app = require('../app');
+const http = require('http');
+
 process.stdin.resume();
 
 let hasClosed = false;
@@ -27,7 +30,7 @@ process.on('SIGTERM', exitHandler.bind(null, { exit: true }));
 
 // catches uncaught exceptions
 process.on('uncaughtException', exitHandler.bind(null, { exit: false }));
-*/
+
 let port = undefined;
 for (let i = 0; i < process.argv.length; i++) {
 	switch (process.argv[i]) {
@@ -38,57 +41,31 @@ for (let i = 0; i < process.argv.length; i++) {
 	}
 }
 
-/**
- * Module dependencies.
- */
+port = port || '9080';
 
-const app = require('../app');
-const debug = require('debug')('bobco:server');
-const http = require('http');
-
-/**
- * Get port from environment and store in Express.
- */
-
-port = normalizePort(port || '9080');
 app.set('port', port);
-
-/**
- * Create HTTP server.
- */
-
 let server = http.createServer(app);
 
-/**
- * Listen on provided port, on all network interfaces.
- */
+if (process.env.NODE_ENV !== 'production') {
+	const debug = require('debug')('bobco:server');
+
+	function onListening() {
+		let addr = server.address();
+		let bind = typeof addr === 'string'
+			? 'pipe ' + addr
+			: 'port ' + addr.port;
+		debug('Listening on ' + bind);
+	}
+
+	server.on('listening', onListening);
+}
 
 server.listen(port);
 server.on('error', onError);
-server.on('listening', onListening);
-
-/**
- * Normalize a port into a number, string, or false.
- */
-
-function normalizePort(val) {
-	let port = parseInt(val, 10);
-
-	if (isNaN(port)) {
-		// named pipe
-		return val;
-	}
-
-	if (port >= 0) {
-		// port number
-		return port;
-	}
-
-	return false;
-}
 
 /**
  * Event listener for HTTP server "error" event.
+ * **From Express**
  */
 
 function onError(error) {
@@ -113,16 +90,4 @@ function onError(error) {
 		default:
 			throw error;
 	}
-}
-
-/**
- * Event listener for HTTP server "listening" event.
- */
-
-function onListening() {
-	let addr = server.address();
-	let bind = typeof addr === 'string'
-		? 'pipe ' + addr
-		: 'port ' + addr.port;
-	debug('Listening on ' + bind);
 }
