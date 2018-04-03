@@ -13,8 +13,6 @@ const baseDir = "./src";
 const outputDir = "./assets/react";
 const entryFile = "index.jsx";
 
-process.env.NODE_ENV = 'production';
-
 /**
  * Builds the src directory
  */
@@ -39,7 +37,12 @@ function build() {
 		}
 	}
 
-	console.log('Bundling production files...');
+	if (process.env.NODE_ENV === 'production')
+		console.log('Bundling production files...\n');
+	else
+		console.log('Bundling dev files...\n');
+
+	let bundles = [];
 
 	// Goes through each subfolder to bundle them
 	// Bundles index.jsx into a js file in assets named after the subfolder
@@ -47,8 +50,14 @@ function build() {
 		const dirName = directories[i];
 		// Nice looking log
 		console.log(`${dirName}/index.jsx -> ${dirName}.js`);
-		bundle([`${baseDir}/${dirName}/index.jsx`], dirName);
+		bundles.push(bundle([`${baseDir}/${dirName}/index.jsx`], dirName));
 	}
+
+	Promise.all(bundles).then(() => {
+		console.log('\nAll files bundled');
+	}).catch(err => {
+		console.log(err);
+	});
 }
 
 /**
@@ -59,19 +68,39 @@ function build() {
  * bundle(["./src/index/index.jsx"], "index");
  */
 function bundle(files, outputName) {
-	browserify()
-		.transform(scssify)
-		.transform(envify({NODE_ENV: 'production'}))
-		.transform('uglifyify', {global: true})
-		.add(files)
-		.on('error', (err) => {
-			console.log(err);
-		})
-		.bundle()
-		.pipe(fs.createWriteStream(`${outputDir}/${outputName}.js`).on('close', () => {
-			const test = uglifyjs.minify(fs.readFileSync(`${outputDir}/${outputName}.js`, 'utf8'));
-			fs.writeFileSync(`${outputDir}/${outputName}.js`, test.code);
-		}));
+	if (process.env.NODE_ENV === 'production')
+		return new Promise((resolve, reject) => {
+			browserify()
+				.transform(scssify)
+				.transform(envify({NODE_ENV: 'production'}))
+				.transform('uglifyify', {global: true})
+				.add(files)
+				.on('error', (err) => {
+					console.log(err);
+					reject(err);
+				})
+				.bundle()
+				.pipe(fs.createWriteStream(`${outputDir}/${outputName}.js`).on('close', () => {
+					const test = uglifyjs.minify(fs.readFileSync(`${outputDir}/${outputName}.js`, 'utf8'));
+					fs.writeFile(`${outputDir}/${outputName}.js`, test.code, () => {
+						resolve();
+					});
+				}));
+		});
+	return new Promise((resolve, reject) => {
+		browserify()
+			.transform(scssify)
+			.transform(envify())
+			.add(files)
+			.on('error', (err) => {
+				console.log(err);
+				reject(err);
+			})
+			.bundle()
+			.pipe(fs.createWriteStream(`${outputDir}/${outputName}.js`).on('close', () => {
+				resolve();
+			}));
+	});
 }
 
 // Run the script
