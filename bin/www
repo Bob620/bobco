@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+/*
 process.stdin.resume();
 
 let hasClosed = false;
@@ -27,7 +27,7 @@ process.on('SIGTERM', exitHandler.bind(null, { exit: true }));
 
 // catches uncaught exceptions
 process.on('uncaughtException', exitHandler.bind(null, { exit: false }));
-
+*/
 let port = undefined;
 for (let i = 0; i < process.argv.length; i++) {
 	switch (process.argv[i]) {
