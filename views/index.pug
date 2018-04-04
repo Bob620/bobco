@@ -1,4 +1,5 @@
 extends layout
 
 block appHead
-  script(src=`/assets/react/${bundle}`)
+	meta(property='og:url', content=`https://bobco.moe${url}`)
+	script(src=`/assets/react/${bundle}`)

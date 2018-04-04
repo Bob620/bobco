@@ -2,6 +2,7 @@
 
 body {
   margin: 0;
+	background: #222 url("/assets/images/shattered.png");
 }
 
 .App-intro {
@@ -12,11 +13,11 @@ body {
 
 .App {
   font-family: 'Oxygen', sans-serif;
-  background-color: #222;
-  color: white;
+	color: white;
   height: 100vh;
   display: flex;
   flex-direction: column;
+	background-color: rgba(0,0,0,0.2);
 }
 
 .App-fail {
