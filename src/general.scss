@@ -1,65 +1,70 @@
 @import url('https://fonts.googleapis.com/css?family=Oxygen');
 
+$primary-blue: #346788;
+
+$primary-red: #ff4646;
+
 body {
   margin: 0;
-	background: #222 url("/assets/images/soft-triangles.png");
-}
-
-.App-intro {
-  padding: 20px;
-  font-size: large;
-  text-align: center;
+	background: #222 url("/assets/images/soft-triangles.png") repeat;
+	background-size: 30vw;
+  overflow: hidden;
 }
 
 .App {
-  font-family: 'Oxygen', sans-serif;
-	color: white;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-	background-color: rgba(0,0,0,0.2);
-}
+	height: 100vh;
 
-.App-fail {
-  color: #ff4646;
+  display: grid;
+	grid-template-columns: [left-edge] 1fr [right-edge];
+	grid-template-rows: [top] 60px [content-top] 1fr [content-bottom bottom];
+
+	background-color: rgba(0,0,0,0.2);
+	font-family: 'Oxygen', sans-serif;
+	color: white;
 }
 
 /* App-loading */
-
 .App-loading {
   position: absolute;
   display: flex;
   justify-content: center;
-  width: 100vw;
-  height: calc(100vh - 60px);
-  top: 60px;
 
   > img {
 		animation: App-image-spin infinite 6s linear;
-		align-self: center;
-		max-height: 40vh;
 	}
 }
 
 /* App-header */
+#App-top-nav {
+	grid-column: left-edge / span right-edge;
+	grid-row: top / span content-top;
 
-.App-header {
-  display: flex;
-  flex-direction: row;
-  background-color: #346788;
-  height: 60px;
+  display: grid;
+	grid-template-columns: [left-edge] 1fr [left-center] 200px [right-center] 1fr [right-edge];
+	grid-template-rows: [top] 1fr [bottom];
 
-	> div {
-		flex-basis: 33%;
-	}
+	justify-items: center;
+	align-items: center;
+  background-color: $primary-blue;
 
-	> h1 {
-		flex-basis: 34%;
+	> .App-logos {
+		grid-column: left-edge / span left-center;
+		grid-row: top / span bottom;
+
+		display: flex;
+
+		a {
+			border: 5px;
+		}
+
+		img {
+			height: 50px;
+			width: 50px;
+		}
 	}
 }
 
 .App-logo {
-/*  animation: App-image-spin infinite 20s linear; */
   height: 40px;
   width: 40px;
   padding: 10px;
@@ -71,18 +76,17 @@ body {
   padding: 10px;
   border-radius: 20px;
 }
-
+/*
 .Patreon-top-button {
   cursor: pointer;
   border-radius: 16px;
   height: 40px;
   padding: 10px;
 }
-
+*/
 .App-title {
   text-align: center;
   align-self: center;
-  width: calc(100vw - 120px);
   cursor: default;
 }
 

@@ -8,22 +8,23 @@ const loadingIcon = '/assets/images/loading.png',
 class Header extends Component {
   render() {
     return (
-      <section className="App-header">
-        <div>
-          <a href="/">
-            <img src={logo} className="App-logo" alt="BobCo" />
-          </a>
-          <a href="https://waifubot.moe">
-            <img src={waifuLogo} className="SubApp-logo" alt="Waifu" />
-          </a>
-          <a href="https://www.patreon.com/bob620"><img src="/assets/images/patreonButton.png" className="Patreon-top-button" /></a>
-        </div>
+      <section id="App-top-nav">
+	      <div className="App-logos">
+		      <a href="/" >
+			      <img src={logo} alt="BobCo" />
+		      </a>
+		      <a href="https://waifubot.moe">
+			      <img src={waifuLogo} alt="Waifu" />
+		      </a>
+	      </div>
         <h2 className="App-title">{this.props.title}</h2>
 	      <div className="App-User" />
       </section>
     );
   }
 }
+
+// <a href="https://www.patreon.com/bob620"><img src="/assets/images/patreonButton.png" className="Patreon-top-button" /></a>
 
 class Button extends Component {
   render() {
