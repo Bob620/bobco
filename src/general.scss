@@ -15,8 +15,8 @@ body {
 	height: 100vh;
 
   display: grid;
-	grid-template-columns: [left-edge] 1fr [right-edge];
-	grid-template-rows: [top] 60px [content-top] 1fr [content-bottom bottom];
+	grid-template-columns: [left-edge] 250px [side-nav-right nav-left] 1fr [right-edge];
+	grid-template-rows: [top nav-profile-top] 60px [top-nav-bottom content-top] 190px [nav-profile-bottom side-nav-top] 1fr [content-bottom side-nav-bottom bottom];
 
 	background-color: rgba(0,0,0,0.2);
 	font-family: 'Oxygen', sans-serif;
@@ -34,10 +34,61 @@ body {
 	}
 }
 
+#App-nav-profile {
+	grid-column: left-edge / span side-nav-right;
+	grid-row: nav-profile-top / span nav-profile-bottom;
+
+	display: grid;
+	grid-template-columns: [left-edge] 1fr [center] 1fr [right-edge];
+	grid-template-rows: [top] 1fr [center] 1fr [bottom];
+
+	justify-items: center;
+	align-items: center;
+
+	> .nav-profile-image {
+		grid-column: left-edge / span center;
+		grid-row: top / span center;
+
+		> img {
+			width: 100px;
+			height: 100px;
+
+			border-radius: 100px;
+		}
+	}
+
+	> .nav-profile-logout {
+		grid-column: center / span right-edge;
+		grid-row: top / span center;
+
+		> i {
+			width: 50px;
+			height: 50px;
+		}
+	}
+
+	> .nav-profile-name {
+		grid-column: left-edge / span right-edge;
+		grid-row: center / span bottom;
+
+		justify-items: center;
+		align-items: center;
+
+		> p {
+
+		}
+	}
+}
+
+#App-side-nav {
+	grid-column: left-edge / span side-nav-right;
+	grid-row: side-nav-top / span side-nav-bottom;
+}
+
 /* App-header */
 #App-top-nav {
-	grid-column: left-edge / span right-edge;
-	grid-row: top / span content-top;
+	grid-column: nav-left / span right-edge;
+	grid-row: top / span top-nav-bottom;
 
   display: grid;
 	grid-template-columns: [left-edge] 1fr [left-center] 200px [right-center] 1fr [right-edge];
